@@ -1,6 +1,7 @@
 // 在组件初次加载时， 自动触发该函数执行。
 import { useRequest } from 'ahooks';
 import React from 'react';
+import { useDisp } from '../App.js';
 
 function getUsername() {
   return new Promise((resolve) => {
@@ -11,6 +12,7 @@ function getUsername() {
 }
 
 const UseRModal = () => {
+  console.log(useDisp(), '通过这种方式获取函数方法');
   const { data, error, loading } = useRequest(getUsername);
 
   if (error) {
